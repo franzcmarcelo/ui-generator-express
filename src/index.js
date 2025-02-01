@@ -7,7 +7,11 @@ app.set('port', process.env.PORT || 3000);
 
 app.use(express.json());
 
-app.post('/', async (req, res) => {
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
+
+app.post('/openai', async (req, res) => {
   const { prompt } = req.body;
   const apiKey = req.headers['x-api-key'];
 
